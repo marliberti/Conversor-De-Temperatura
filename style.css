@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-color: hsl(222, 43%, 10%);
+}
+h1{
+    color: #f1f1f1;
+    margin-top: 50px;
+    font-size: 40px;
+    text-align: center;
+    margin-left:70px  ;
+}
+
+label{
+    color: #f1f1f1; 
+}
+select{
+    color:#0f1626;
+    width: 110px;
+    height:30px;
+    border-radius: 5px;
+    text-align: center;
+    margin:5px ;
+    
+
+}
+
+#origem{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#destino{
+    margin-top: 20px;
+}
+
+input#temperatura, #resultado{
+    width: 400px;
+    height: 50px;
+    padding: 5px;
+    margin-top: 20px;
+    border-radius:8px ;
+}
+
+form{ 
+    margin-top: 20px;
+    text-align: center;
+}
+button{
+    margin-top: 20px;
+}
+#converter{
+    width: 150px;
+    height: 40px;
+    background-color: #f84600;
+    border: solid 1px #ffff;
+    border-radius: 5px;
+    color: #f1f1f1;
+    margin-left: 70px;
+}
+#converter:hover{
+    transition: 0.4s;
+    background-color: #ffffff;
+    color:#0f1626;
+  
+}
+#zerar{
+    width: 150px;
+    height: 40px;
+    margin-left:5px;
+    background-color: #0f1626;
+    border: solid 1px #ffff;
+    border-radius: 5px;
+    color: #f1f1f1;
+}
+#zerar:hover{
+    transition: 0.4s;
+    background-color: #ffffff;
+    color:#0f1626;
+}

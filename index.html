@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversor de Temperatura</title>
+    
+</head>
+<body>
+    <h1 id="titulo">Conversor de Temperatura</h1>
+
+    <form>
+
+        <label for="temperatura">Temperatura:</label>
+        <input id="temperatura" placeholder="Informe aqui a temperatura">
+        <br>
+
+        <label for="origem">Selecione a Unidade de Origem:</label>
+        <select name="origem" id="origem">
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+            <option value="rankine">Rankine</option>
+        </select>
+        <label for="destino">Selecione a Unidade de Destino:</label>
+        <select name="destino" id="destino">
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+            <option value="rankine">Rankine</option>
+        </select>
+        <br>
+        <label for="resultado">Resultado:</label>
+        <input id="resultado" placeholder="Será exibido aqui o resultado da sua conversão">
+        <br>
+        <button id="converter" onClick="converterTemperatura(event)">Converter</button>
+        <button id="zerar">Zerar</button>
+    </form>
+
+    <script>
+        function converterTemperatura(event){
+            event.preventDefault();
+            let valorTemperatura=document.getElementById("temperatura").value;
+            let valorOrigem=document.getElementById("origem").value;
+            let valorDestino=document.getElementById("destino").value;
+            let valorResultado = valorTemperatura
+
+            if(valorOrigem=="fahrenheit" && valorDestino=="celsius"){
+                valorResultado=(parseFloat(valorTemperatura-32)/1.8)
+            }else if(valorOrigem=="fahrenheit" && valorDestino=="kelvin"){
+                valorResultado=(parseFloat(valorTemperatura-32)*5/9 + 273.15);
+            }else if(valorOrigem=="fahrenheit" && valorDestino=="rankine"){
+                valorResultado=(parseFloat(valorTemperatura) + 459.67);
+            }else if(valorOrigem=="celsius" && valorDestino=="fahrenheit"){
+                valorResultado=(parseFloat(valorTemperatura*1.8)+32);
+            }else if(valorOrigem=="celsius" && valorDestino=="kelvin"){
+                valorResultado= (parseFloat(valorTemperatura) + 273.15);
+            }else if(valorOrigem=="celsius" && valorDestino=="rankine"){
+                valorResultado= (parseFloat(valorTemperatura*1.8)+32+459.67);
+            }else if(valorOrigem=="kelvin" && valorDestino=="celsius"){
+                valorResultado= (parseFloat(valorTemperatura - 273.15));
+            }else if(valorOrigem=="kelvin" && valorDestino=="fahrenheit"){
+                valorResultado= (parseFloat(valorTemperatura-273.15) * 1.8 + 32);
+            }else if(valorOrigem=="kelvin" && valorDestino=="rankine"){
+                valorResultado= (parseFloat(valorTemperatura)*1.8);
+            }else if(valorOrigem=="rankine" && valorDestino=="celsius"){
+                valorResultado= (parseFloat(valorTemperatura - 32 -459.67)/1.8);
+            }else if(valorOrigem=="rankine" && valorDestino=="fahrenheit"){
+                valorResultado= (parseFloat(valorTemperatura-459.67));
+            }else if(valorOrigem=="rankine" && valorDestino=="kelvin"){
+                valorResultado= (parseFloat(valorTemperatura/1.8));
+            }
+            document.getElementById("resultado").value=valorResultado.toFixed(2)
+
+            document.getElementById('zerar').onclick=clearForm;
+            function clearForm(){
+                document.getElementById("fahrenheit").value="";
+                document.getElementById("celsius").value="";
+                document.getElementById("kelvin").value="";
+                document.getElementById("rankine").value="";
+            }
+        }
+
+    </script>
+   
+
+
+</body>
+</html>
